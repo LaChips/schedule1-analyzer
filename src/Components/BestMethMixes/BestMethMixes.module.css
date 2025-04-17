@@ -125,3 +125,8 @@
         }
     }
 }
+
+.modal {
+    width: 55vw;
+    min-width: 264px;
+}
