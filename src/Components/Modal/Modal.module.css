@@ -24,6 +24,14 @@
     transform: translate(-50%, -50%);
     transition: all 0.3s ease;
     max-height: 90vh;
+    min-width: 264px;
+    width: fit-content;
+}
+
+@media screen and (max-width: 600px) {
+    .modal {
+        width: 90%;
+    }
 }
 
 .modalHeader {
