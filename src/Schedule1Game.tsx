@@ -25,6 +25,7 @@ const Schedule1Game = () => {
       mixSteps: [],
       ingredientCost: 0,
       seedCost: baseVarieties[b].seedCost,
+      id: b
     }))
   );
   const [methMixes, setMethMixes] = useState<MethType[]>(
@@ -33,6 +34,7 @@ const Schedule1Game = () => {
       crystalPrice: baseMethTypes[b].crystalPrice,
       mixSteps: [],
       ingredientCost: 0,
+      id: b,
     }))
   );
 

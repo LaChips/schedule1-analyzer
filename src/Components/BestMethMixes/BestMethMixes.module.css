@@ -9,6 +9,7 @@
         background: var(--darker-grey);
         border-radius: 8px;
         padding: 24px;
+        flex: 1 1;
 
         .label {
             font-size: 24px;
@@ -43,6 +44,7 @@
     align-items: left;
     gap: 16px;
     margin-bottom: 12px;
+    flex-wrap: wrap;
 
     .property.selected {
         background: var(--green);

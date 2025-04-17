@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 
+import { ADDITIVES } from "../../helpers/additives";
 import { Customer } from "../../types/NPC";
 import { Property } from "../../types/property";
 import { ComputedVariety, Variety } from "../../types/variety";
@@ -120,7 +121,6 @@ const TopVarietiesBySortType = ({ title, sortBy }: TopVarietiesBySortTypeProps) 
                                 className={styles.input}
                             />
                         </div>
-                        {' - '}
                         <div className={styles.inlineInput}>
                             <span className={styles.label}>Mixing Machines</span>
                             <input
@@ -168,7 +168,7 @@ const TopVarietiesBySortType = ({ title, sortBy }: TopVarietiesBySortTypeProps) 
                         <h4>Mix Steps</h4>
                         <ul>
                             {([...selectedVariety?.mixSteps || []])?.reverse().map((step, index) => (
-                                <li key={index}>{varieties.find((v) => v.id === step.product)?.name} + {step.mixer}</li>
+                                <li key={index}>{varieties.find((v) => v.id === step.product)?.name} + {ADDITIVES[step.mixer].name}</li>
                             ))}
                         </ul>
                     </div>

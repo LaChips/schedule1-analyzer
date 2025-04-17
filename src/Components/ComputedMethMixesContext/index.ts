@@ -1,4 +1,4 @@
-import ComputedVarietiesContext from "./ComputedVarietiesContext";
-import ComputedVarietiesProvider from "./ComputedVarietiesContextProvider";
+import { ComputedVarietiesContext, ComputedVarietiesProvider } from "../ComputedVarietiesContext";
+
 
 export { ComputedVarietiesContext, ComputedVarietiesProvider };

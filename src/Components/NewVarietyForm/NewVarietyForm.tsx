@@ -15,6 +15,7 @@ const NewVarietyForm = ({ addVariety }: NewVarietyFormProps) => {
     mixSteps: [],
     ingredientCost: 0,
     seedCost: 0,
+    id: '',
   });
 
   const handleAddVariety = useCallback(
@@ -39,6 +40,7 @@ const NewVarietyForm = ({ addVariety }: NewVarietyFormProps) => {
         }],
         ingredientCost: 0,
         seedCost: 0,
+        id: ''
       });
     },
     [addVariety, newVariety]
