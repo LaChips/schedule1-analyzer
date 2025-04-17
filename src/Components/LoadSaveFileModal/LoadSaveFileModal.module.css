@@ -1,0 +1,150 @@
+.varietyList {
+    width: 100%;
+    box-shadow: inset 0 0 10px var(--box-shadow);
+    border-radius: 8px;
+    overflow: auto;
+    max-height: 150px;
+    margin: 20px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.importResultsContainer {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.modal {
+    
+    width: 55vw;
+    min-width: 264px;
+}
+
+.loadedProductTypeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background-color: var(--box-shadow-light);
+    border-radius: 8px;
+    gap: 10px;
+    width: 140px;
+    flex: 1 1;
+
+    @media (max-width: 740px) {
+        width: 100%;
+    }
+
+    .productIcon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.productDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .amount {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: var(--white);
+    }
+
+    .productType {
+        font-size: 1em;
+        color: var(--white);
+    }
+}
+
+.close {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--white);
+}
+
+.dropContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 400px;
+    padding: 20px;
+    border: 2px dashed var(--white);
+    color: var(--white);
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    border-radius: 8px;
+}
+
+
+.dropTitle {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: var(--white);
+    padding: 8px;
+    background-color: var(--darker-grey);
+    border-radius: 8px;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 8px;
+    border: none;
+    background-color: var(--dark-grey);
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: var(--white);
+    color: var(--dark-grey)
+}
+
+.gameData {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 32px;
+    margin-top: 20px;
+    padding: 24px;
+    background-color: var(--box-shadow-light);
+    border-radius: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .gameDataDescription {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .gameDataValue {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .gameDataKey {
+            font-size: 1em;
+            color: var(--white);
+        }
+    }
+}

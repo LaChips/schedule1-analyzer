@@ -1,0 +1,37 @@
+.tableCell {
+    padding: 10px;
+}
+
+.step {
+    display: flex;
+    gap: 12px;
+    color: var(--white);
+    margin-bottom: 24px;
+    align-items: baseline;
+
+    .stepCounter {
+        font-size: 3em;
+        font-weight: bold;
+        color: var(--white);
+    }
+
+    .stepTextContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .stepText {
+        font-size: 1.5em;
+        color: var(--white);
+    }
+
+    .path {
+        background: var(--darker-grey);
+        display: block;
+        display: inline;
+        padding: 3px 6px 6px 6px;
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,125 @@
+.bestVarietiesContainer {
+
+
+    .topVarietiesContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        background: var(--darker-grey);
+        border-radius: 8px;
+        padding: 24px;
+
+        .label {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .varietyRow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--dark-grey);
+            border-radius: 8px;
+
+            .varietyName {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .varietyValue {
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--light-grey);
+            }
+        }
+    }
+}
+
+.propertyRow {
+    display: flex;
+    align-items: left;
+    gap: 16px;
+    margin-bottom: 12px;
+
+    .property.selected {
+        background: var(--green);
+    }
+}
+
+.emptyStateContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background: var(--darker-grey);
+    padding: 24px;
+}
+
+.info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+
+    .inlineInput {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+
+        .label {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--white);
+        }
+    }
+}
+
+.topVarietiesTablesContainer {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    .methMixesTable {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .varietyRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px;
+            background: var(--dark-grey);
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--white);
+
+            &:hover {
+                background: var(--white);
+                color: var(--dark-grey) !important;
+            }
+
+            .varietyName {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .varietyValue {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .varietyInfo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+    }
+}

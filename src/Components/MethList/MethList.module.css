@@ -1,0 +1,41 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tableCell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--white);
+}
+
+.name {
+    font-weight: bold;
+    min-width: 250px;
+}
+
+.sortIcon {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+}
+
+.paginationContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.itemsPerPage label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}

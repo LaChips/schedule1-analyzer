@@ -1,0 +1,50 @@
+.gameDataCategory {
+    background: var(--darker-grey);
+    padding: 16px 24px 24px 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .categoryTitle {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--white);
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: var(--white);
+        margin: 8px 0 16px 0;
+    }
+
+    .gameDataItemsContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 16px;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+
+        .gameDataItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+    
+            .gameDataValue {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--white);
+            }
+    
+            .gameDataKey {
+                font-size: 14px;
+                font-weight: 400;
+                color: var(--grey);
+            }
+        }
+    }
+}
