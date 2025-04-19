@@ -4,6 +4,7 @@ import { Customer } from "../../types/NPC";
 import { Property } from "../../types/property";
 import { ComputedMethType, MethType } from "../../types/variety";
 
+import { ADDITIVES } from "../../helpers/additives";
 import ComputedMethMixesContext from "../ComputedMethMixesContext/ComputedMethMixesContext";
 import ComputedMethMixesContextProvider from "../ComputedMethMixesContext/ComputedMethMixesContextProvider";
 import Modal from "../Modal";
@@ -181,7 +182,7 @@ const TopMethMixesBySortType = ({ title, sortBy }: TopMethMixesBySortTypeProps) 
                     <h4>Mix Steps</h4>
                     <ul>
                         {([...selectedMethMix?.mixSteps || []])?.reverse().map((step, index) => (
-                            <li key={index}>{methMixes.find((v) => v.id === step.product)?.name} + {step.mixer}</li>
+                            <li key={index}>{methMixes.find((v) => v.id === step.product)?.name} + {ADDITIVES[step.mixer].name}</li>
                         ))}
                     </ul>
                 </div>
