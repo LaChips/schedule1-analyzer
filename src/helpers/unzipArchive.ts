@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error this dependency is required to unzip the archive
 import { unzipSync } from 'https://cdn.skypack.dev/fflate';
 
 const getArchiveContent = async (archive: File): Promise<{name: string, content: string}[]> => {

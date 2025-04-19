@@ -13,37 +13,24 @@ function computeProductValues(
   margin: number,
 ) {
   const HOURS_IN_DAY = 24;
-  const GATHER_TIME = 8;
-  const TRANSFORM_TIME = 5;
+  const PREPARATION_TIME = 8;
+  const COOK_TIME = 5;
   const MIX_TIME = 1;
   const FIXED_COST = 80 + 80; // 80 for the pseudo, 80 for the two other ingredients
 
   return products.map(product => {
-    // Step 1: Compute batch cost
     const batchCost = FIXED_COST + product.ingredientCost;
-
-    // Step 2: Compute profit per batch
     const profitPerBatch = (product.crystalPrice * 10) - batchCost;
-
-    // Step 3: Compute profit per unit
     const profitPerUnit = profitPerBatch / 10;
-
-    // Step 4: Compute ratio cost-benefit
     const ratioCostBenefit = profitPerUnit / batchCost;
+    const preparationThroughput = Math.floor(chemistryStations * HOURS_IN_DAY / PREPARATION_TIME); // max preparation volume (in batch)
+    const cookThroughput = Math.floor(labOvens * HOURS_IN_DAY / COOK_TIME); // max cooking volume (in batch)
+    const mixThroughput = Math.floor(mixingMachines * HOURS_IN_DAY / MIX_TIME); // max mixing volume (in batch)
 
-    // Step 5: Compute time per batch
-    const gatherThroughput = Math.floor(chemistryStations * HOURS_IN_DAY / GATHER_TIME); // max batches by gathering
-    const transformThroughput = Math.floor(labOvens * HOURS_IN_DAY / TRANSFORM_TIME); // max batches by transforming
-    const mixThroughput = Math.floor(mixingMachines * HOURS_IN_DAY / MIX_TIME); // max batches by mixing
-
-    const maxProductionPerDay = product.mixSteps.length > 0 ? Math.min(gatherThroughput, transformThroughput, mixThroughput) : transformThroughput;
+    const maxProductionPerDay = product.mixSteps.length > 0 ? Math.min(preparationThroughput, cookThroughput, mixThroughput) : cookThroughput;
 
     const productionPerDay = Math.min(demand + margin, maxProductionPerDay * 10);
-
-    // Step 6: Mixing steps (the length of the array)
     const mixSteps = product.mixSteps.length;
-
-    // Step 7: Compute profit per day
     const profitPerDay = profitPerUnit * productionPerDay;
 
     return {
@@ -53,7 +40,7 @@ function computeProductValues(
       profitPerBatch: profitPerBatch,
       profitPerCrystal: profitPerUnit,
       ratioCostBenefit: ratioCostBenefit,
-      timePerBatch: Math.max(GATHER_TIME, TRANSFORM_TIME) + MIX_TIME, // gathering + transforming + mixing
+      timePerBatch: Math.max(COOK_TIME, COOK_TIME) + MIX_TIME,
       mixTime: MIX_TIME * mixSteps,
       mixStepsAmount: mixSteps,
       maxProductionPerDay: maxProductionPerDay,
