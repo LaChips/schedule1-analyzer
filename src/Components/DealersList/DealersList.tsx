@@ -22,6 +22,8 @@ const Dealerslist = ({ dealers, allCustomers }: DealersListProps) => {
             const idealCustomersForDealer = NPC_BY_DEALER_ID[dealer.id];
             const dealerCustomers = dealer.customers.map(customerId => {
                 const customer = allCustomers.find(c => c.id === customerId);
+                console.log("customer", customer);
+                console.log("customerId", customerId);
                 return {
                     id: customer?.id || "",
                     name: customer?.name || "",

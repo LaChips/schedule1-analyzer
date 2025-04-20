@@ -103,7 +103,7 @@ export const NPC_BY_DEALER_ID: Record<string, string[]> = {
         'jerry_montero',
     ],
     'brad_crosby': [
-        'mrs_ming',
+        'ming',
         'peggy_myers',
         'peter_file',
         'sam_thompson',

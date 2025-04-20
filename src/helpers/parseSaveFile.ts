@@ -44,15 +44,14 @@ const convertToVariety = (product: RawVariety, products: Record<string, ProductF
     }, 0);
     const baseProductId = recipeChain.length > 0 ? recipeChain[recipeChain.length - 1].product : id;
     const baseProduct = type === 0 ? baseVarieties[baseProductId] : type === 1 ? baseMethTypes[baseProductId] : baseCocaineMixes[baseProductId];
-    console.log({name, id})
     return {
         name,
         id,
         base: baseProduct.name,
-        ...type ===  0 ? { budPrice: product.sellPrice } : { crystalPrice: product.sellPrice },
+        ...type ===  0 ? { budPrice: product.sellPrice } : type === 1 ? { crystalPrice: product.sellPrice } : { price: product.sellPrice },
         mixSteps: recipeChain,
         ingredientCost,
-        ...type === 0 && {seedCost: (baseProduct as Variety).seedCost},
+        ...'seedCost' in baseProduct && {seedCost: (baseProduct as Variety).seedCost as number},
     };
 }
 
@@ -155,12 +154,14 @@ export const GAME_OBJECTS: Record<string, string> = {
     brickpress: "Brick Press",
     ledgrowlight: "LED Grow Light",
     plasticpot: "Plastic Pot",
+    airpot: "Air Pot",
 }
 
 export const WEED_GROWING_OBJECTS = [
     'growtent',
     'moisturepreservingpot',
-    'plasticpot'
+    'plasticpot',
+    'airpot'
 ];
 
 const EMPLOYEE_TYPES: Record<string, EmployeeType> = {
@@ -182,6 +183,7 @@ const PROPERTIES_BY_NAME : Record<string, string> = {
     Bungalow: "bungalow",
     "Motel Room": "motelroom",
     Sweatshop: "sweatshop",
+    'Docks Warehouse': "dockswarehouse",
 }
 
 const parseProperties = async (files: {name: string, content: string}[]): Promise<Property[]> => {

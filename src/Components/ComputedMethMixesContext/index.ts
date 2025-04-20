@@ -1,4 +1,4 @@
-import { ComputedVarietiesContext, ComputedVarietiesProvider } from "../ComputedVarietiesContext";
+import ComputedMethMixesContext from "./ComputedMethMixesContext";
+import ComputedMethMixesProvider from "./ComputedMethMixesContextProvider";
 
-
-export { ComputedVarietiesContext, ComputedVarietiesProvider };
+export { ComputedMethMixesContext, ComputedMethMixesProvider };

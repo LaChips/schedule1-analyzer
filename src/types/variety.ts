@@ -11,7 +11,7 @@ export type Variety = {
     budPrice: number;
     mixSteps: {product: string, mixer: string}[];
     ingredientCost: number;
-    seedCost: number;
+    seedCost?: number;
 }
 
 export type ComputedVariety = {
@@ -83,21 +83,28 @@ export type BaseCocaineMix = {
 }
 
 export type CocaineMix = {
+    id: string;
     name: string;
-    price?: number;
+    price: number;
     mixSteps: {product: string, mixer: string}[];
     ingredientCost: number;
 }
 
 export type ComputedCocaineMix = {
+    id: string;
     name: string;
-    base: string;
     mixSteps: {product: string, mixer: string}[];
     ingredientCost: number;
     totalCost: number;
     profitPerUnit: number;
     profitPerBatch: number;
     price: number;
+    mixStepsAmount: number;
+    profitPerDay: number;
+    maxProductionPerDay: number;
+    productionPerDay: number;
+    timePerBatch?: number;
+    mixTime?: number;
 }
 
 export type Product = Variety | MethType | CocaineMix;

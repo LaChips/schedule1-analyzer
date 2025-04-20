@@ -2,12 +2,13 @@ import { useState } from "react";
 import DealersList from "./Components/DealersList";
 import LoadSaveFileModal from "./Components/LoadSaveFileModal";
 import SaveFileOverview from "./Components/SaveFileOverview";
-import { baseMethTypes, baseVarieties } from "./helpers/BaseVarieties";
+import { baseCocaineMixes, baseMethTypes, baseVarieties } from "./helpers/BaseVarieties";
 import { SaveVariables } from "./types/game";
 import { Customer, Dealer, Supplier } from "./types/NPC";
 import { Property } from "./types/property";
-import { MethType, Variety } from "./types/variety";
+import { CocaineMix, MethType, Variety } from "./types/variety";
 
+import BestCocaineMixes from "./Components/BestCocaineMixes";
 import BestMethMixes from "./Components/BestMethMixes";
 import BestVarieties from "./Components/BestVarieties";
 import styles from "./Schedule1Game.module.css";
@@ -32,6 +33,15 @@ const Schedule1Game = () => {
     Object.keys(baseMethTypes).map((b) => ({
       name: b,
       crystalPrice: baseMethTypes[b].crystalPrice,
+      mixSteps: [],
+      ingredientCost: 0,
+      id: b,
+    }))
+  );
+  const [cocaineMixes, setCocaineMixes] = useState<CocaineMix[]>(
+    Object.keys(baseCocaineMixes).map((b) => ({
+      name: b,
+      price: baseCocaineMixes[b].price,
       mixSteps: [],
       ingredientCost: 0,
       id: b,
@@ -62,9 +72,10 @@ const Schedule1Game = () => {
         </div>
       </div>
       <LoadSaveFileModal
-        onSave={({varieties, methMixes, gameData, properties, npcs }) => {
+        onSave={({varieties, methMixes, cocaineMixes, gameData, properties, npcs }) => {
           setVarieties(varieties);
           setMethMixes(methMixes);
+          setCocaineMixes(cocaineMixes);
           setGameVariables(gameData);
           setProperties(properties);
           setNpcs(npcs);
@@ -87,6 +98,7 @@ const Schedule1Game = () => {
       <DealersList dealers={npcs?.dealers || []} allCustomers={npcs?.customers || []} />
       <BestVarieties properties={properties} customers={npcs?.customers || []} varieties={varieties} />
       <BestMethMixes properties={properties} customers={npcs?.customers || []} methMixes={methMixes} />
+      <BestCocaineMixes properties={properties} customers={npcs?.customers || []} cocaineMixes={cocaineMixes} />
       {/* <h2>Varieties</h2>
       <VarietyList varieties={varieties} />
 

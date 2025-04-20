@@ -15,7 +15,7 @@ function computeProductValues(
   const HOURS_IN_DAY = 24;
   const GROW_TIME = 10.5;
   const MIX_TIME = 1;
-  const FIXED_COST = products[0].seedCost + (60 / 3); // 60 for the soil, assuming "High Quality" soil, 3 uses, 1 use per batch
+  const FIXED_COST = (products[0].seedCost || 30) + (60 / 3); // 60 for the soil, assuming "High Quality" soil, 3 uses, 1 use per batch
 
   return products.map(product => {
     const batchCost = FIXED_COST + product.ingredientCost;
@@ -66,8 +66,7 @@ const ComputedVarietiesProvider = ({varieties, property, customers, defaultPotsU
     }, [property.id])
 
     const computedVarieties: {varieties: ComputedVariety[], isSuggested: boolean, mixingMachineUsed: number, potsUsed: number } = useMemo(() => {
-      console.log({varieties });
-      const totalAverageOrderQuantity = customers.length * 5; // assuming each customer buys 5 items per day
+      const totalAverageOrderQuantity = customers.length * 3; // assuming each customer buys 3 items per day
       const totalObjectsMap = property.objects.reduce((acc: Record<string, number>, propertyObject: PropertyObject) => {
         if (propertyObject) {
           acc[propertyObject.id] = (acc[propertyObject.id] || 0) + propertyObject.amount;
