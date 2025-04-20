@@ -32,7 +32,7 @@ const VarietyList = ({ varieties }: VarietyListProps) => {
   const computedVarieties = useMemo(() => {
     const newVarieties = varieties.map((v) => {
       const totalCost =
-        v.seedCost +
+        (v.seedCost || 30) +
         (v.ingredientCost * 8) +
         (soilTypes[soil].cost / soilTypes[soil].uses);
       
